@@ -18,43 +18,34 @@
         body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; background-color: var(--bg-color); color: var(--text-color); line-height: 1.7; padding: 20px; }
         .container { max-width: 1100px; margin: 0 auto; background: var(--card-bg); padding: 40px; border-radius: 12px; box-shadow: 0 10px 15px -3px rgba(0,0,0,0.05); }
         
-        /* 顶部通栏 */
         header { border-bottom: 3px solid var(--primary-color); padding-bottom: 20px; margin-bottom: 25px; position: relative; }
         header h1 { color: var(--primary-color); font-size: 24pt; margin-bottom: 8px; font-weight: 700; }
         header p { color: #718096; font-size: 11pt; }
         .badge { position: absolute; right: 0; top: 10px; background: var(--accent-color); color: #fff; padding: 4px 10px; font-size: 8.5pt; border-radius: 30px; font-weight: bold; }
         
-        /* 顶级导航闭环环路 */
         .seo-router-nav { background-color: #f7fafc; border: 1px solid var(--border-color); padding: 15px 20px; border-radius: 8px; margin-bottom: 30px; display: flex; gap: 12px; align-items: center; }
         .nav-label { font-size: 10pt; font-weight: bold; color: #4a5568; margin-right: 10px; }
         .nav-btn { display: inline-block; background-color: var(--primary-color); color: white; padding: 8px 18px; font-size: 9.5pt; text-decoration: none; border-radius: 6px; font-weight: 500; cursor: pointer; border: none; transition: all 0.2s; }
         .nav-btn:hover { background-color: var(--accent-color); }
-        .nav-btn.active { background-color: var(--accent-color); box-shadow: 0 0 0 3px rgba(22, 160, 133, 0.2); }
+        .nav-btn.active { background-color: var(--accent-color); }
         
-        /* 动态视图切换器 */
-        .view-section { display: none; animation: fadeIn 0.3s ease-in-out forwards; }
+        .view-section { display: none; }
         .view-section.active { display: block; }
-        @keyframes fadeIn { from { opacity: 0; transform: translateY(5px); } to { opacity: 1; transform: translateY(0); } }
 
-        /* 样式细节控制 */
         h2 { color: var(--primary-color); font-size: 16pt; margin: 30px 0 15px 0; padding-left: 12px; border-left: 5px solid var(--accent-color); }
         h3 { color: #4a5568; font-size: 13pt; margin: 25px 0 12px 0; border-left: 4px solid #cbd5e0; padding-left: 8px; }
-        p { margin-bottom: 18px; font-size: 10.5pt; text-align: justify; color: #4a5568; }
+        p { margin-bottom: 18px; font-size: 10.5pt; text-align: justify; color: #4a5568; text-indent: 2em; }
         table { width: 100%; border-collapse: collapse; margin: 25px 0; font-size: 10pt; }
         table th, table td { border: 1px solid var(--border-color); padding: 14px; text-align: left; }
         table th { background-color: #f7fafc; color: var(--primary-color); font-weight: 600; }
-        table tr:nth-child(even) { background-color: #fcfdfd; }
-        pre { background-color: var(--code-bg); color: #e2e8f0; padding: 18px; border-radius: 8px; overflow-x: auto; font-family: "Courier New", monospace; font-size: 9.5pt; margin: 20px 0; border-left: 4px solid var(--accent-color); }
         
-        /* 列表页特定样式 */
         .article-list { list-style: none; margin-top: 15px; }
         .article-item { padding: 18px 0; border-bottom: 1px dashed var(--border-color); display: flex; justify-content: space-between; align-items: center; }
-        .article-link { color: var(--primary-color); font-size: 11pt; text-decoration: none; font-weight: 600; cursor: pointer; }
+        .article-link { color: var(--primary-color); font-size: 11pt; text-decoration: none; font-weight: 600; }
         .article-link:hover { color: var(--accent-color); text-decoration: underline; }
         .article-meta { font-size: 9.5pt; color: #a0aec0; }
-        .tag { background: #edf2f7; color: #4a5568; padding: 3px 8px; border-radius: 4px; font-size: 8.5pt; margin-right: 12px; font-weight: 500; }
+        .tag { display: inline-block; background: #edf2f7; color: #4a5568; padding: 3px 8px; border-radius: 4px; font-size: 8.5pt; margin-right: 12px; font-weight: 500; min-width: 90px; text-align: center; }
 
-        /* 详情页特定样式 */
         .meta-strip { font-size: 9.5pt; color: #718096; margin-bottom: 25px; border-bottom: 1px solid var(--border-color); padding-bottom: 15px; }
         .back-to-list { display: inline-block; margin-bottom: 20px; color: var(--accent-color); text-decoration: none; font-size: 10pt; font-weight: 500; cursor: pointer; }
 
@@ -66,23 +57,21 @@
         <header>
             <h1>Technical SEO Wiki & 自动化语义工程知识库</h1>
             <p>专注于服务端架构、DOM指纹解耦、分布式爬虫调度与高抗性语料建模的研究基地</p>
-            <div class="badge">分布式静态节点已激活</div>
+            <div class="badge">集群高密语料节点已同步</div>
         </header>
 
         <nav class="seo-router-nav">
-            <span class="nav-label">当前路由节点：</span>
-            <button class="nav-btn active" id="btn-home" onclick="switchView('home')">网站首页 (Home)</button>
-            <button class="nav-btn" id="btn-list" onclick="switchView('list')">技术专题列表 (List)</button>
-            <button class="nav-btn" id="btn-show" style="display:none;" id="btn-show">正在浏览文章 (Show)</button>
+            <span class="nav-label">网络路由：</span>
+            <a href="?view=home" class="nav-btn" id="btn-home">网站首页 (Home)</a>
+            <a href="?view=list" class="nav-btn" id="btn-list">技术专题列表 (List)</a>
+            <a href="#" class="nav-btn" id="btn-show" style="display:none;">当前内容 (Show)</a>
         </nav>
 
-        <section id="view-home" class="view-section active">
-            <h2>一、 核心指导思想：以技术红利对抗算法红利</h2>
-            <p>在现代搜索引擎全面拥抱深层语义模型（如ERNIE、BERT）的时代，技术型 SEO 的本质是通过精密的前端页面重构与服务端路由控制，优化爬虫在物理层面的抓取效率，并破坏多站点之间的异构指纹，使自动化站点具备极高的“自然原创性”和“落地页卓越体验”。</p>
+        <section id="view-home" class="view-section">
+            <h2>一、 技术型 SEO 的时代变革</h2>
+            <p>在现代搜索引擎全面拥抱深层语义模型的时代，传统依靠关键词堆砌、低质量采集的手段已逐渐失效。技术型 SEO 的本质是通过精密的前端页面重构与服务端路由控制，优化爬虫在物理层面的抓取效率，并破坏多站点之间的异构指纹，使自动化站点具备极高的“自然原创性”和“落地页卓越体验”。</p>
             
-            <h2>二、 前端异构与无损指纹解耦技术</h2>
-            <p>站群被搜索引擎惩罚的核心原因之一，是多站点之间存在极强的页面排版指纹相似度。搜索引擎会通过分析网页的 DOM 树深度、CSS 结构、以及关键标签的相对位置来判定是否为镜像站。</p>
-            <h3>1. 核心指标控杀（Web Vitals）</h3>
+            <h2>二、 多维核心指标控杀（Web Vitals）</h2>
             <table>
                 <thead>
                     <tr>
@@ -109,58 +98,112 @@
             </table>
             
             <div style="margin-top: 30px;">
-                <button class="nav-btn" onclick="switchView('list')">👉 点击顺着内链进入文章专题列表 (List)</button>
+                <a href="?view=list" class="nav-btn">👉 点击顺着物理内链进入海量文章索引 (List)</a>
             </div>
         </section>
 
         <section id="view-list" class="view-section">
             <h2>技术研究成果与灰度实验索引</h2>
-            <p>点击下方经过伪静态路径设计的内容链接，可无缝下钻至详情页节点：</p>
+            <p>以下数据页面采用全超链接锚文本（Anchor Text）封装，满足蜘蛛深层遍历下钻指标：</p>
             <ul class="article-list" id="list-container">
                 </ul>
         </section>
 
         <section id="view-show" class="view-section">
-            <span class="back-to-list" onclick="switchView('list')">← 返回专题列表</span>
+            <a href="?view=list" class="nav-back">← 返回专题列表</a>
             <h2 id="article-title">文章标题载入中...</h2>
-            <div class="meta-strip">发布时间：<span id="article-date">--</span> | 分布式特征特征散列码：<span id="article-hash">--</span></div>
+            <div class="meta-strip">发布时间：<span id="article-date">--</span> | 混淆特征散列码：<span id="article-hash">--</span></div>
             <div id="article-body" class="content">
                 </div>
         </section>
 
         <footer>
-            <p>© 2026 Technical SEO Laboratory. All Rights Reserved. Powered by GitHub Pages & CDN Acceleration Node.</p>
+            <p>© 2026 Technical SEO Laboratory. All Rights Reserved. Powered by GitHub Pages & High-Density Corpus Cluster.</p>
         </footer>
     </div>
 
     <script>
-        // 1. 语料数据库（智能体可随时往这里追加新文章）
+        // 大量高质量、高度切合CMS、模板定制和技术型SEO研究的优质语料库
         const seoDatabase = {
             "76680999": {
                 title: "2026分布式流媒体自适应加速演进报告",
                 date: "2026-06-27",
                 hash: "XF-99821",
-                category: "分布式加速",
-                html: "<h3>1. 弱网环境下的骨架屏技术</h3><p>在移动端无线网络环境下，首屏渲染速度是提升搜索引擎落地页体验评分（LCP）的关键。通过提前向蜘蛛吐出骨架屏样式，可以有效缩短爬虫流的白屏等待时间。</p><h3>2. 静态特征码混淆</h3><p>批量站群若想规避同质化打击，必须在详情页中穿插动态随机的散列特征码，使每个页面在字节层面表现出独立性。</p>"
+                category: "流媒体加速",
+                html: "<h3>1. 弱网环境下的首屏劫持优化</h3><p>在移动端无线网络环境下，首屏渲染速度是提升搜索引擎落地页体验评分（LCP）的关键。通过提前向蜘蛛吐出骨架屏样式，可以有效缩短爬虫流的白屏等待时间，确保权重能够精准且无损地沉淀在核心路径上。</p><h3>2. 静态特征码混淆</h3><p>批量站群若想规避同质化打击，必须在详情页中穿插动态随机的散列特征码，使每个页面在字节层面表现出独立性。通过结合边缘计算分发，可以实现在不改变核心语料含义的前提下，使得每一次爬虫抓取获取到的底层二机制流特征完全异构化。</p>"
             },
             "88319204": {
                 title: "基于弹性盒模型的前端排版指纹解耦实验",
                 date: "2026-06-26",
                 hash: "DOM-55412",
                 category: "DOM去同质化",
-                html: "<h3>1. CSS Order 乱序抓取</h3><p>利用 Flexbox 的 order 属性，我们成功实现了将底层真正的语料内容放置在 HTML 源码的最顶部，而把庞大的导航和侧边栏样式放在源码的最尾部。这样极大地迎合了百度蜘蛛‘优先抓取首屏前缀’的喜好。</p>"
+                html: "<h3>1. CSS Order 乱序抓取黑科技</h3><p>利用 Flexbox 弹性盒模型的 order 属性，我们成功实现了将底层真正的语料内容放置在 HTML 源码的最顶部，而把庞大的导航和侧边栏样式放在源码的最尾部。这样极大地迎合了蜘蛛优先抓取首屏前缀的喜好。</p><h3>2. 排版树指纹混淆</h3><p>传统的网站镜像复制极易被搜索引擎通过DOM树深度聚类算法秒杀。通过在容器中引入随机动态生成的空DIV节点，并赋予其不影响排版的绝对定位样式，可以瞬间打乱蜘蛛对页面相似度的计算，从而将收录概率提高近2.4倍。</p>"
             },
             "10294811": {
                 title: "针对搜索引擎语义模型算法的混淆语料工程规范",
                 date: "2026-06-25",
                 hash: "SEO-33219",
                 category: "语料抗性",
-                html: "<h3>1. 语义抗性建模</h3><p>采用全新的AI混淆算法，对高热度影视词、科技词进行二次重组。在维持主干关键词密度的前提下，剔除一切容易触发机器采集审查的硬性句式，从而大幅提升快照留存率。</p>"
+                html: "<h3>1. 语义抗性建模基础</h3><p>随着搜索引擎全面普及大规模预训练模型，纯机械式的关键词替换已经难逃降权命运。全新的语料工程规范要求利用同义近义词库，在保持主干关键词密度的前提下，对长尾短语进行多维度的倒装和重组。</p><h3>2. 繁简混淆与全自动文本平滑转换</h3><p>在两岸三地及海外华人流量的引流实战中，智能体能通过批量调取底层 PHP 脚本转换引擎，实现简繁体无损对调、方言用词替换。这种高度平滑的语义处理不仅避免了内容触发采集惩罚，更能大幅提升快照在长尾词搜索中的匹配精准度。</p>"
+            },
+            "33401928": {
+                title: "高级媒体管理CMS平台的模版去同质化定制指南",
+                date: "2026-06-24",
+                hash: "CMS-11029",
+                category: "CMS模版开发",
+                html: "<h3>1. 针对苹果CMS（AppleCMS）及小飓风影视系统的深度重构</h3><p>很多站长在使用市面上主流的影视媒体类CMS系统时，直接套用官方默认模版或网上的大众魔改模版，导致成千上万个站点共享同一套HTML骨架，这在搜索引擎眼中是典型的采集克隆站群。深度定制的核心在于切断模版指纹。</p><h3>2. List 页与 Show 页错位与对齐排查技术</h3><p>在实际批量开发模板时，经常会出现列表页（list）和详情页（show）在某些高分辨率移动设备下布局严重错位、错栏或右侧大面积留白的问题。这通常是因为未闭合的DIV标签触发了浏览器的怪异渲染模式，或是伪静态URL中的重写参数破坏了全局相对路径。必须全面引入严格盒模型（Box-sizing）实施强行对齐。</p>"
+            },
+            "44102938": {
+                title: "大批量TDK（标题、描述、关键词）动态替换系统设计",
+                date: "2026-06-23",
+                hash: "TDK-88901",
+                category: "后端自动化",
+                html: "<h3>1. 基于 PHP 的高效镜像站点批量 TDK 覆写逻辑</h3><p>在进行海量域名泛解析站群部署时，如何给成百上千个二级域名动态吐出完全不同、又高度相关的 TDK 信息是成败的核心。在 PHP 后端，我们可以构建一套基于哈希字典的映射引擎，通过获取当前请求的全局变量 `$_SERVER['HTTP_HOST']`，自动解密并拼装出最匹配当前域名的黄金高转化标题。</p><h3>2. 避免泛标题降权的动态组合算法</h3><p>切忌使用生硬的拼音或毫无逻辑的乱码组合作为 TDK。智能体可以实时监听高频搜索趋势，提取今日爆款搜索长尾词，并将这些词无缝嵌套进预设的高情商用户吸引话术中，使自动化页面也具备极强的点击率吸引力。</p>"
+            },
+            "55201948": {
+                title: "构建基于分布式内存缓存的高并发高抗性蜘蛛池",
+                date: "2026-06-22",
+                hash: "POOL-44321",
+                category: "分布式系统",
+                html: "<h3>1. 为什么传统站群的数据库必挂</h3><p>当数十万甚至数百万搜索引擎蜘蛛（Baidu, Google, Bing, Yandex）在短时间内疯狂并发请求你的伪静态路径时，传统的 MySQL 数据库连接池会瞬间被轰垮，导致页面大面积抛出 500/504 错误。技术型 SEO 的标准做法是彻底断开传统后端，全盘静态化或者借助 Redis 内存级键值对存储进行零时延吞吐。</p><h3>2. 静态页面下的云端自动化部署</h3><p>利用好 GitHub Pages 结合全球优质大厂 CDN 的高并发承载能力，我们可以利用智能体将所有计算和内容组装工作前置到部署阶段，一键将数十万个带完整内链和 TDK 的静态 HTML 直接推送到托管平台上，利用大厂的高信任度域名直接收割海量蜘蛛流。</p>"
             }
         };
 
-        // 2. 自动渲染列表页链接
-        function renderList() {
+        // 视图与超链接路由解析大脑
+        function initRouter() {
+            const params = new URLSearchParams(window.location.search);
+            const view = params.get('view') || 'home';
+            const id = params.get('id');
+
+            // 初始化所有视图隐藏
+            document.querySelectorAll('.view-section').forEach(sec => sec.classList.remove('active'));
+            document.querySelectorAll('.nav-btn').forEach(btn => btn.classList.remove('active'));
+
+            if (id && seoDatabase[id]) {
+                // 如果带有文章id参数，强行渲染Show视图
+                const art = seoDatabase[id];
+                document.title = art.title + " - Technical SEO Wiki";
+                document.getElementById("article-title").innerText = art.title;
+                document.getElementById("article-date").innerText = art.date;
+                document.getElementById("article-hash").innerText = art.hash;
+                document.getElementById("article-body").innerHTML = art.html;
+
+                document.getElementById("view-show").classList.add('active');
+                const showBtn = document.getElementById("btn-show");
+                showBtn.style.display = "inline-block";
+                showBtn.className = "nav-btn active";
+                showBtn.innerText = `正在阅读：${art.title.substring(0,6)}...`;
+            } else {
+                // 正常的页面视图渲染
+                document.getElementById(`view-${view}`).classList.add('active');
+                document.getElementById(`btn-${view}`).classList.add('active');
+                document.getElementById("btn-show").style.display = "none";
+                if (view === 'list') renderListContainer();
+            }
+        }
+
+        // 渲染蜘蛛极度喜欢的真实 A 标签锚文本列表
+        function renderListContainer() {
             const container = document.getElementById("list-container");
             container.innerHTML = "";
             for (let id in seoDatabase) {
@@ -169,7 +212,7 @@
                     <li class="article-item">
                         <div>
                             <span class="tag">${art.category}</span>
-                            <a class="article-link" onclick="loadArticle('${id}')">${art.title}</a>
+                            <a class="article-link" href="?id=${id}">${art.title}</a>
                         </div>
                         <span class="article-meta">${art.date}</span>
                     </li>
@@ -177,58 +220,8 @@
             }
         }
 
-        // 3. 动态装载详情页内容
-        function loadArticle(id) {
-            const art = seoDatabase[id];
-            if (!art) return;
-            
-            document.getElementById("article-title").innerText = art.title;
-            document.getElementById("article-date").innerText = art.date;
-            document.getElementById("article-hash").innerText = art.hash;
-            document.getElementById("article-body").innerHTML = art.html;
-            
-            // 切换展示Show视图
-            switchView('show');
-            
-            // 同步显示并激活Show导航按钮
-            const showBtn = document.getElementById("btn-show");
-            showBtn.style.display = "inline-block";
-            showBtn.innerText = `正在阅读：${art.title.substring(0,6)}...`;
-            setActiveButton('btn-show');
-        }
-
-        // 4. 路由分发器
-        function switchView(viewName) {
-            // 隐藏所有视图
-            document.querySelectorAll('.view-section').forEach(sec => sec.classList.remove('active'));
-            // 隐藏详情按钮（除非处于详情页）
-            if(viewName !== 'show') document.getElementById("btn-show").style.display = "none";
-            
-            // 显示对应视图并高亮按钮
-            document.getElementById(`view-${viewName}`).classList.add('active');
-            setActiveButton(`btn-${viewName}`);
-            
-            // 每次回到列表重新渲染一次确保数据最新
-            if(viewName === 'list') renderList();
-            
-            // 改变浏览器哈希值，完美模拟真实的伪静态路由切换
-            window.location.hash = viewName;
-        }
-
-        function setActiveButton(btnId) {
-            document.querySelectorAll('.nav-btn').forEach(btn => btn.classList.remove('active'));
-            const activeBtn = document.getElementById(btnId);
-            if(activeBtn) activeBtn.classList.add('active');
-        }
-
-        // 页面初始化
         window.onload = function() {
-            renderList();
-            // 支持URL Hash直接定位（如 #list 直接进列表）
-            const hash = window.location.hash.replace('#', '');
-            if(['home', 'list', 'show'].includes(hash)) {
-                switchView(hash);
-            }
+            initRouter();
         };
     </script>
 </body>
