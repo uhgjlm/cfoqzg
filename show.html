@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>技术详情 - Technical SEO Wiki</title>
+    <style>
+        :root {
+            --bg-color: #f4f6f9;
+            --text-color: #333333;
+            --primary-color: #2c3e50;
+            --accent-color: #16a085;
+            --card-bg: #ffffff;
+            --border-color: #e2e8f0;
+            --code-bg: #2d3748;
+        }
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; background-color: var(--bg-color); color: var(--text-color); line-height: 1.6; padding: 20px; }
+        .container { max-width: 900px; margin: 0 auto; background: var(--card-bg); padding: 40px; border-radius: 8px; box-shadow: 0 4px 6px rgba(0,0,0,0.05); }
+        .nav-links { margin-bottom: 20px; font-size: 10pt; display: flex; gap: 15px; }
+        .nav-links a { color: var(--accent-color); text-decoration: none; }
+        h1 { color: var(--primary-color); font-size: 22pt; margin-bottom: 15px; }
+        .meta-info { font-size: 9.5pt; color: #718096; margin-bottom: 30px; border-bottom: 1px solid var(--border-color); padding-bottom: 15px; }
+        .content { font-size: 11pt; text-align: justify; }
+        .content p { margin-bottom: 20px; }
+        .content h3 { color: var(--primary-color); margin: 25px 0 10px 0; font-size: 13pt; border-left: 4px solid var(--accent-color); padding-left: 8px; }
+        pre { background-color: var(--code-bg); color: #f7fafc; padding: 15px; border-radius: 6px; overflow-x: auto; font-family: monospace; font-size: 9.5pt; margin: 20px 0; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="nav-links">
+            <a href="index.html">首页</a>
+            <a href="list.html">专题列表</a>
+        </div>
+        
+        <h1 id="art-title">正在加载技术文档...</h1>
+        <div class="meta-info">发布时间：<span id="art-date">2026-06-27</span> | 分布式特征混淆码：<span id="art-hash">INITIALIZING</span></div>
+        
+        <div class="content" id="art-content">
+            <p>正在读取底层集群数据通道...</p>
+        </div>
+    </div>
+
+    <script>
+        const database = {
+            "76680999": {
+                title: "2026分布式流媒体自适应加速演进报告",
+                date: "2026-06-27",
+                hash: "XF-99821",
+                html: "<h3>1. 弱网环境下的骨架屏技术</h3><p>在移动端无线网络环境下，首屏渲染速度是提升搜索引擎落地页体验评分（LCP）的关键。通过提前向蜘蛛吐出骨架屏样式，可以有效缩短爬虫流的白屏等待时间。</p><h3>2. 静态特征码混淆</h3><p>批量站群若想规避同质化打击，必须在详情页中穿插动态随机的散列特征码，使每个页面在字节层面表现出独立性。</p>"
+            },
+            "88319204": {
+                title: "基于弹性盒模型的前端排版指纹解耦实验",
+                date: "2026-06-26",
+                hash: "DOM-55412",
+                html: "<h3>1. CSS Order 乱序抓取</h3><p>利用 Flexbox 的 order 属性，我们成功实现了将底层真正的语料内容放置在 HTML 源码的最顶部，而把庞大的导航和侧边栏样式放在源码的最尾部。这样极大地迎合了百度蜘蛛‘优先抓取首屏前缀’的喜好。</p>"
+            }
+        };
+
+        // 自动解析 URL 参数
+        const urlParams = new URLSearchParams(window.location.search);
+        const id = urlParams.get('id') || "76680999";
+        const article = database[id] || database["76680999"];
+
+        // 渲染到页面
+        document.title = article.title + " - Technical SEO Wiki";
+        document.getElementById("art-title").innerText = article.title;
+        document.getElementById("art-date").innerText = article.date;
+        document.getElementById("art-hash").innerText = article.hash;
+        document.getElementById("art-content").innerHTML = article.html;
+    </script>
+</body>
+</html>
